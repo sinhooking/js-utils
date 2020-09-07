@@ -1,12 +1,8 @@
-const express = require('express');
-const app = express()
-
-app.use(express.json())
-app.use(require('cors')())
-
-app.use('/uploads', express.static('uploads'));
-
+const app = require('./config/express')();
 const initSocket = require('./socket');
+
 const server = app.listen(3030, () => {
+    console.log('initialize server.js');
+
     initSocket(require('socket.io')(server));
-})
+});
