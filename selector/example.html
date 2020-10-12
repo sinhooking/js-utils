@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test">
+        <div id="sss">
+            <div id="sasasa"></div>
+        </div>
+        <div id="sss2"></div>
+        <div id="sss3"></div>
+    </div>
+    <div id="as"></div>
+    <script src="/js/S.js"></script>
+    <script>
+        var s = new S();
+
+        S.ready(function () {
+            console.log('dom ready function');
+
+            console.log(s('#test').children().first());
+            console.log(s('#test').children().last());
+
+            console.log(s('#test').children().get());
+            console.log(s('#test').children().elementLength());
+
+            console.log(
+                s(
+                    s('#test').children().first()
+                ).children().first()
+            );
+
+            s('#test')
+                .children()
+                .each(function (el) {
+                    console.log(el);
+                });
+        })
+
+        S.load(function () {
+            console.log('load function');
+        })
+    </script>
+</body>
+
+</html>
